@@ -8,7 +8,7 @@ if ix == 0 | ix > length(lof)
   for ii = 1:length(lof)
     fprintf('%2d -- %s\n',ii,lof(ii).name);
   end
-  fprintf('\nA file named ts.ab.cd.csv contains a matrix with b*10^a rows and d*10^c columns.\n');
+  fprintf('\nA file named ts.ab.cd.csv contains a matrix with b*10^a rows and d*10^c columns.\nBigger test files are available in test.performance branch.');
   return
 end
 %
