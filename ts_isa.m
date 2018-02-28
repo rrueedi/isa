@@ -1,28 +1,8 @@
-function ts = ts_isa(ix,addNaNs)
-if nargin<2; addNaNs = 0; end
-if nargin<1; ix = 0 ; end
-
-lof = dir('ts/ts.*.csv');
-if ix == 0 | ix > length(lof)
-  fprintf('\nrun this test as a function of the input file index, chosing among the following: \n\n')
-  for ii = 1:length(lof)
-    fprintf('%2d -- %s\n',ii,lof(ii).name);
-  end
-  fprintf('\nA file named ts.ab.cd.csv contains a matrix with b*10^a rows and d*10^c columns.\nBigger test files are available in test.performance branch.');
-  return
-end
-%
 % ----- ----------------
 %       import test data
 %       ---------------- -----
 %
-lof = dir('ts/ts.*.csv');
-ts.mx = csvread(fullfile('ts',lof(ix).name));
-if addNaNs
-  dd = prod(size(ts.mx));
-  se = randi(dd,ceil(dd/100),1);
-  ts.mx(se) = NaN;
-end
+ts.mx = csvread(fullfile('ts','ts.csv'));
 %
 % ----- ------------------
 %       set ISA parameters
